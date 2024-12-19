@@ -10,9 +10,8 @@
 
 //Uncomment this block if using RGB
 &led_strip {
-    chain-length = <6>;
-    chain-length = <31>; // Uncomment if using both per-key and underglow LEDs
-//    chain-length = <25>; // Uncomment if using only per-key LEDs.
+    // Defines my RGB chain length
+    chain-length = <31>;
 };
 
 &nice_view_spi {
@@ -41,8 +40,7 @@
         function_layer {
             // ---------------------------------------------------------------------------------------------------------------------------------
             // |       |      |BT_CLR|BTSEL0|BTSEL1|BTSEL2|                                         |      |      |      |      |      |      |
-            // |       |      |      |BTSEL3|BTSEL4|      |                                         |      |      |      |      |      |      |
-            // |       |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+            // |       |      |      |BTSEL3|BTSEL4|      |                                         |      |      |      |      |      |      | |       |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
             //                       |      |      |      |      |      |      |      |      |      |      |      |      |
             bindings = <
             &trans &trans &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2              &trans &trans &trans &trans &trans &trans
