@@ -77,7 +77,7 @@
             bindings = <
 &trans  &trans  &trans  &kp GRAVE  &kp LEFT_BRACE        &kp RIGHT_BRACE                                        &kp LESS_THAN  &kp GREATER_THAN  &trans        &trans          &trans  &trans
 &trans  &trans  &trans  &trans  &kp LBKT              &kp RBKT                                               &kp EQUAL      &kp EXCLAMATION   &kp ASTERISK  &kp UNDERSCORE  &trans  &trans
-&trans  &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans  &trans  &trans  &trans  &MINUS         &kp PLUS          &trans        &trans          &trans  &trans
+&trans  &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans  &trans  &trans  &trans  &kp MINUS         &kp PLUS          &trans        &trans          &trans  &trans
                         &trans  &trans                &trans                 &trans  &trans  &trans  &trans  &trans         &trans            &trans
             >;
         };
