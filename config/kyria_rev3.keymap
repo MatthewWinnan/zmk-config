@@ -34,6 +34,14 @@
 &nice_view_spi { cs-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>; };
 
 / {
+    behaviors {
+    mouse_emulation: mouse_emulation {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -86,7 +94,7 @@
 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                                                                     &trans  &trans  &trans  &trans  &trans  &trans
 &trans        &trans        &trans        &trans        &trans        &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans
 &trans        &trans        &trans        &trans        &trans        &trans      &rgb_ug RGB_BRD  &rgb_ug RGB_TOG                   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                          &trans        &trans        &trans      &rgb_ug RGB_BRI  &rgb_ug RGB_COLOR_HSB(296,78,25)  &trans  &trans  &trans  &trans  &trans
+                                          &trans        &trans        &&rgb_ug RGB_EFF      &rgb_ug RGB_BRI  &rgb_ug RGB_COLOR_HSB(296,78,25)  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -97,6 +105,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB1  &mkp MB2  &mkp MCLK  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans  &trans
                         &trans  &trans  &trans  &trans  &mkp MB4  &mkp MB5  &trans     &trans          &trans          &trans
             >;
+        sensor-bindings = <&mouse_emulation>;
         };
     };
 };
