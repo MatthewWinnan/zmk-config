@@ -31,6 +31,10 @@
     chain-length = <31>;
 };
 
+&lt {
+    tapping-term-ms = <200>;
+};
+
 &nice_view_spi { cs-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>; };
 
 / {
@@ -43,9 +47,6 @@
     };
 
     keymap {
-        compatible = "zmk,keymap";
-
-        default_layer {
             // ---------------------------------------------------------------------------------------------------------------------------------
             // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
             // |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
@@ -53,10 +54,10 @@
             //                     | C_MUTE  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
 
             bindings = <
-&kp ESC         &kp Q  &kp W  &kp E         &kp R    &kp T                                                      &kp Y     &kp U          &kp I               &kp O    &kp P     &kp BSLH
-&kp LEFT_SHIFT  &lt NUMPAD A  &kp S  &kp D         &kp F    &kp G                                                      &kp H     &kp J          &kp K               &kp L    &kp SEMI  &kp SQT
-&kp LCTRL       &kp Z  &kp X  &kp C         &kp V    &kp B         &kp DELETE  &kp BACKSPACE  &mo NUMPAD      &mo SYMBOLS  &kp N     &kp M          &kp COMMA           &kp DOT  &kp FSLH  &kp RCTRL
-                              &lt MOUSE C_MUTE  &kp TAB  &kp LEFT_ALT  &kp SPACE &kp ENTER      &kp ENTER  &mo SPECIAL  &kp RCMD  &kp RIGHT_GUI  &lt SETTINGS C_PLAY_PAUSE
+&kp ESC         &kp Q    &kp W  &kp E             &kp R    &kp T                                                             &kp Y      &kp U          &kp I                      &kp O    &kp P     &kp BACKSPACE
+&kp LEFT_SHIFT  &kp A  &kp S  &kp D             &kp F    &kp G                                                             &kp H      &kp J          &kp K                      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL       &kp Z    &kp X  &kp C             &kp V    &kp B         &kp BACKSPACE  &tog NUMPAD  &mo NUMPAD  &mo SPECIAL  &kp N      &kp M          &kp COMMA                  &kp DOT  &kp FSLH  &kp RCTRL
+                                &lt MOUSE C_MUTE  &kp TAB  &kp LEFT_ALT  &kp SPACE      &kp ENTER   &mo NUMPAD  &mo SYMBOLS  &kp ENTER  &kp RIGHT_GUI  &lt SETTINGS C_PLAY_PAUSE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -73,10 +74,10 @@
 
         symbols_layer {
             bindings = <
-&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH   &kp DOLLAR  &kp PERCENT                                  &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE
-&trans  &kp GRAVE        &kp MINUS    &kp EQUAL  &kp LBKT    &kp RBKT                                     &kp BSLH   &kp SEMI       &kp APOS      &kp COMMA             &kp DOT                &kp FSLH
-&trans  &trans           &trans       &trans     &trans      &trans       &trans  &trans  &trans  &trans  &trans     &trans         &trans        &trans                &trans                 &trans
-                                      &trans     &trans      &trans       &trans  &trans  &trans  &trans  &trans     &trans         &trans
+&trans  &trans  &trans  &kp GRAVE  &kp LEFT_BRACE        &kp RIGHT_BRACE                                        &kp LESS_THAN  &kp GREATER_THAN  &trans        &trans          &trans  &trans
+&trans  &trans  &trans  &trans  &kp LBKT              &kp RBKT                                               &kp EQUAL      &kp EXCLAMATION   &kp ASTERISK  &kp UNDERSCORE  &trans  &trans
+&trans  &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans  &trans  &trans  &trans  &trans         &kp PLUS          &trans        &trans          &trans  &trans
+                        &trans  &trans                &trans                 &trans  &trans  &trans  &trans  &trans         &trans            &trans
             >;
         };
 
@@ -91,10 +92,10 @@
 
         settings_layer {
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                                                                     &trans  &trans  &trans  &trans  &trans  &trans
-&trans        &trans        &trans        &trans        &trans        &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans
-&trans        &trans        &trans        &trans        &trans        &trans      &rgb_ug RGB_BRD  &rgb_ug RGB_TOG                   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                          &trans        &trans        &rgb_ug RGB_EFF      &rgb_ug RGB_BRI  &rgb_ug RGB_COLOR_HSB(296,78,25)  &trans  &trans  &trans  &trans  &trans
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                                                                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans        &trans        &trans        &trans        &trans        &trans                                                                              &trans  &trans  &trans  &trans  &trans  &trans
+&trans        &trans        &trans        &trans        &trans        &trans           &rgb_ug RGB_BRD  &rgb_ug RGB_TOG                   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                          &trans        &trans        &rgb_ug RGB_EFF  &rgb_ug RGB_BRI  &rgb_ug RGB_COLOR_HSB(296,78,25)  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -105,8 +106,9 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mkp MB1  &mkp MB2  &mkp MCLK  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans  &trans
                         &trans  &trans  &trans  &trans  &mkp MB4  &mkp MB5  &trans     &trans          &trans          &trans
             >;
-        sensor-bindings = <&mouse_emulation>;
+
+            sensor-bindings = <&mouse_emulation>;
         };
     };
-};
+  };
 
