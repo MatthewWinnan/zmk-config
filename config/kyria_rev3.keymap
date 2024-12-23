@@ -52,8 +52,17 @@
       #binding-cells = <0>;
       bindings = <&kp ESCAPE>, <&kp TAB>;
 
-      tapping-term-ms = <100>;
+      tapping-term-ms = <250>;
   };
+
+
+    td1: td1 {
+            compatible = "zmk,behavior-tap-dance";
+            lable = "TD1";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&lm 1 LEFT_ALT>, <&sk LSHIFT>;
+        };
     };
 
     /**
