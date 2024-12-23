@@ -36,6 +36,10 @@
     tapping-term-ms = <200>;
 };
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS>;
+};
+
 &nice_view_spi { cs-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>; };
 
 / {
@@ -58,10 +62,10 @@
 
     td1: td1 {
             compatible = "zmk,behavior-tap-dance";
-            lable = "TD1";
+            label = "TD1";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&lm 1 LEFT_ALT>, <&sk LSHIFT>;
+            tapping-term-ms = <450>;
+            bindings = <&lm 1 LEFT_ALT>, <&sk LSHIFT>, <&caps_word>;
         };
     };
 
