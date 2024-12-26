@@ -82,7 +82,7 @@
       compatible = "zmk,behavior-tap-dance";
       label = "LD1";
       #binding-cells = <0>;
-      bindings = <&sl NUMPAD>, <&mo NUMPAD>
+      bindings = <&sl NUMPAD>, <&mo NUMPAD>;
 
       tapping-term-ms = <250>;
   };
@@ -91,7 +91,7 @@
       compatible = "zmk,behavior-tap-dance";
       label = "LD2";
       #binding-cells = <0>;
-      bindings = <&sl SYMBOLS>, <&mo SYMBOLS>
+      bindings = <&sl SYMBOLS>, <&mo SYMBOLS>;
 
       tapping-term-ms = <250>;
   };
