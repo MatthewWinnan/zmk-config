@@ -67,7 +67,7 @@
             label = "TD1";
             #binding-cells = <0>;
             tapping-term-ms = <450>;
-            bindings = <&lm 1 LET_ALT>, <&sk LSHIFT>, <&caps_word>;
+            bindings = <&lm 1 LEFT_ALT>, <&sk LSHIFT>, <&caps_word>;
         };
 
   td2: td2 {
